@@ -36,6 +36,8 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,6 +55,7 @@ public class MainActivity extends FragmentActivity implements GeoQueryEventListe
     public GeoQuery geoQuery;
     private Map<String, Marker> markers;
     public Marker marker;
+    public PolylineOptions rectOptions;
 
     @Override
     public void onMapReady(GoogleMap map) {
@@ -70,7 +73,7 @@ public class MainActivity extends FragmentActivity implements GeoQueryEventListe
         }
         LatLng latLngCenter = new LatLng(INITIAL_CENTER.latitude, INITIAL_CENTER.longitude);
         Log.d("LatlngCenter",latLngCenter.toString());
-
+        rectOptions = new PolylineOptions();
 
 
         searchCircle = map.addCircle(new CircleOptions().center(new LatLng(23.0977, 72.5491)).radius(100000));
@@ -236,11 +239,15 @@ public class MainActivity extends FragmentActivity implements GeoQueryEventListe
             public void onLocationResult(String key, GeoLocation location) {
                 if (location != null) {
                     System.out.println(String.format("The location for key %s is [%f,%f]", key, location.latitude, location.longitude));
-                    if(marker!=null)
-                    {
+//                    if(marker!=null)
+//                    {
 
-                        marker.remove();
-                    }
+//                        marker.remove();
+//                    }
+                   rectOptions.add(new LatLng(location.latitude, location.longitude));
+
+                    Polyline polyline = map.addPolyline(rectOptions);
+
                     marker = map.addMarker(new MarkerOptions().position(new LatLng(location.latitude, location.longitude)));
                    marker.setTag(0);
 
