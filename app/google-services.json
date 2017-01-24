@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "500874141839",
+    "firebase_url": "https://geofire-17aa9.firebaseio.com",
+    "project_id": "geofire-17aa9",
+    "storage_bucket": "geofire-17aa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500874141839:android:2e5f311efb1aa85b",
+        "android_client_info": {
+          "package_name": "com.vedant.hereami"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500874141839-2vv9tu4m96r0mdbun1is5bgqk79qipoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByu2R-oME7MaTZWflCI8k1HOi19O5JVOk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
